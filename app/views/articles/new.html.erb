@@ -1,0 +1,12 @@
+<%= form_for @article, :html=> {:multipart => true} do |f| %>
+<div id="basic_information">
+  <%= f.text_field :title, :size => 40, maxlength: 80, placeholder: "Enter title here" %>
+  <%= f.text_field :category, :size => 15, maxlength: 20, placeholder: "Enter category here" %>
+</div>
+<div id="content_cards">
+
+
+</div>
+
+
+<% end %>

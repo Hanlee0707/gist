@@ -1,0 +1,3 @@
+class Article < ActiveRecord::Base
+  attr_accessible :category, :contributor_id, :status, :title
+end
