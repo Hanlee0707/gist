@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class VideoCardTest < ActiveSupport::TestCase
+class ComponentTypeTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

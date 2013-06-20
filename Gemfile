@@ -7,6 +7,7 @@ gem 'pg'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'activerecord-postgres-hstore'
 
 # Gems used only for assets and not required
 # in production environments by default.

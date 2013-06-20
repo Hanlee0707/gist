@@ -1,0 +1,3 @@
+class ComponentType < ActiveRecord::Base
+  attr_accessible :name
+end

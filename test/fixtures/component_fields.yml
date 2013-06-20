@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  content: MyText
-  title: MyString
   name: MyString
+  field_type: MyString
+  required: false
+  component_type: 
 
 two:
-  content: MyText
-  title: MyString
   name: MyString
+  field_type: MyString
+  required: false
+  component_type: 

@@ -1,4 +1,7 @@
 Gist::Application.routes.draw do
+  resources :component_types
+
+
   resources :articles
 
   # The priority is based upon order of creation:

@@ -58,18 +58,6 @@ ActiveRecord::Schema.define(:version => 20130618061219) do
     t.datetime "updated_at",             :null => false
   end
 
-  create_table "image_cards", :force => true do |t|
-    t.string   "url"
-    t.text     "caption"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "number_cards", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "numbers", :force => true do |t|
     t.string   "value"
     t.text     "explanation"
@@ -77,27 +65,6 @@ ActiveRecord::Schema.define(:version => 20130618061219) do
     t.integer  "style"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-  end
-
-  create_table "quote_cards", :force => true do |t|
-    t.text     "content"
-    t.string   "title"
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "text_cards", :force => true do |t|
-    t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "video_cards", :force => true do |t|
-    t.string   "url"
-    t.text     "caption"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
 end

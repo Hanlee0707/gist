@@ -1,0 +1,9 @@
+class RemoveTypeFromArticleComponents < ActiveRecord::Migration
+  def up
+    remove_column :article_component, :type
+  end
+
+  def down
+    add_column :article_component, :type, :string
+  end
+end
