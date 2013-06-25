@@ -35,11 +35,13 @@ SET default_with_oids = false;
 CREATE TABLE article_components (
     id integer NOT NULL,
     article_id integer,
-    component_id integer,
+    component_type_id integer,
     "position" integer,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    properties text
+    properties text,
+    title character varying(255),
+    template integer
 );
 
 
@@ -271,10 +273,9 @@ CREATE TABLE numbers (
     id integer NOT NULL,
     value character varying(255),
     explanation text,
-    "position" integer,
-    style integer,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    article_component_id integer
 );
 
 
@@ -463,3 +464,11 @@ INSERT INTO schema_migrations (version) VALUES ('20130618082528');
 INSERT INTO schema_migrations (version) VALUES ('20130618082703');
 
 INSERT INTO schema_migrations (version) VALUES ('20130620130310');
+
+INSERT INTO schema_migrations (version) VALUES ('20130620132021');
+
+INSERT INTO schema_migrations (version) VALUES ('20130620142819');
+
+INSERT INTO schema_migrations (version) VALUES ('20130622155158');
+
+INSERT INTO schema_migrations (version) VALUES ('20130625133841');

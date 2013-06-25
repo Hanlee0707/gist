@@ -1,0 +1,8 @@
+<fieldset>
+  <%= f.hidden_field :_destroy, value: "0" %>
+  <%= link_to "remove", '#', class: "remove_fields" %>
+  <%= link_to "up", "#", class: "switch_number_values_up" %>
+  <%= link_to "down", "#", class: "switch_number_values_down" %>
+  <%= f.text_field :value, size: 20, maxlength: 20, placeholder: "Number" %>
+  <%= f.text_area :explanation, rows: 5, placeholder: "explanation" %>
+</fieldset>

@@ -1,0 +1,9 @@
+class RenameComponentTypeId < ActiveRecord::Migration
+  def up
+    rename_column :component_types, :component_id, :component_type_id
+  end
+
+  def down
+    rename_column :component_types, :component_type_id, :component_id
+  end
+end

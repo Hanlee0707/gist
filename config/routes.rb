@@ -3,6 +3,7 @@ Gist::Application.routes.draw do
 
 
   resources :articles
+  match "/add_content", to:"articles#add_content", :via => :get
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
