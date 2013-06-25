@@ -1,8 +1,0 @@
-
-
-    time = new Date().getTime()
-    regexp = new RegExp($(this).data('id'), 'g')
-    $("#content_cards").append($(this).data('fields').replace(regexp, time))
-    lastElement = $("#content_cards fieldset:last-child")
-    prevCount = lastElement.prevAll().length+1
-    lastElement.children("input[id*='position']").val(prevCount)

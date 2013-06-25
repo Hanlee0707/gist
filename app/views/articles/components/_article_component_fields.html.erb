@@ -1,0 +1,40 @@
+<fieldset>
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "remove", '#', class: "remove_components" %>
+  <%= f.hidden_field :position %>
+  <%= f.hidden_field :component_type_id %>
+  <%= f.hidden_field :template %>
+  <%= f.text_field :title %>
+
+  <%= f.fields_for :properties, OpenStruct.new(f.object.properties) do |field_builder| %>
+    <% if f.object.component_type.name == "image" or f.object.component_type.name == "video" then %>
+      <% f.object.component_type.fields.each do |field| %>
+        <% if f.object.template == 1 then %> 
+	  <% if field.name != "bottom_caption" then %>
+            <%= render "articles/fields/#{field.field_type}", field: field, f: field_builder %>
+	  <% end %>
+	<% elsif f.object.template == 2 then %>
+	  <%= render "articles/fields/#{field.field_type}", field: field, f: field_builder %>	     <% else %>
+	  <% if field.name != "top_caption" then %>
+            <%= render "articles/fields/#{field.field_type}", field: field, f: field_builder %>
+	  <% end %>
+	<% end %>
+      <% end %>
+    <% else %>
+      <% f.object.component_type.fields.each do |field| %>
+        <%= render "articles/fields/#{field.field_type}", field: field, f: field_builder %>
+      <% end %>
+    <% end %>  
+  <% end %>
+
+  <% if f.object.component_type.name == "number" %>
+    <% f.object.numbers.order("id asc").each do |number| %>
+      <%= f.fields_for :numbers, number do |builder| %>
+	<%= render 'articles/components/number'+f.object.template+'_fields', :f => builder %>
+      <% end %>
+    <% end %>
+    <%= link_to_add_fields "New Number", f, :numbers, f.object.template %>
+  <% end %>
+
+
+</fieldset>
