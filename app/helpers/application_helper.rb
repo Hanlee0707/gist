@@ -26,7 +26,7 @@ module ApplicationHelper
     id = new_object.object_id
     fields = f.fields_for(association, new_object, child_index: id) do |builder|
       if template.nil? then
-        if association.to_s != "component_types" then
+        if association.to_s != "component_types" and association.to_s != "fields" then
           render("articles/components/" + association.to_s.singularize +  "_fields", f: builder)
         else
           render(association.to_s.singularize +  "_fields", f: builder)
