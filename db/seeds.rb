@@ -43,24 +43,6 @@ ComponentType.create([
 
 
 
-Employee.create([
-  { :email => nil, :password_digest => nil, :first_name => nil, :last_name => nil, :create_account_token => nil, :create_account_sent_at => nil, :account_create_time => nil, :password_reset_token => nil, :password_reset_sent_at => nil, :created_at => nil, :updated_at => nil }
-], :without_protection => true )
-
-
-
-EmployeePositionTypes.create([
-  { :position_type => nil, :created_at => nil, :updated_at => nil }
-], :without_protection => true )
-
-
-
-EmployeePositions.create([
-  { :employee_id => nil, :position => nil, :created_at => nil, :updated_at => nil }
-], :without_protection => true )
-
-
-
 NewsLink.create([
   { :publisher => nil, :url => nil, :created_at => nil, :updated_at => nil, :article_component_id => nil }
 ], :without_protection => true )
