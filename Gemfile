@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'activerecord-postgres-hstore'
+gem 'seed_dump'
 
 # Gems used only for assets and not required
 # in production environments by default.
