@@ -1,0 +1,31 @@
+
+<fieldset>
+
+<%= component.title %>
+
+<% component.properties.each do |name, value| %>
+  <p>
+    <% if component.component_type.name == "image" and name== "url" then %>
+      <%= image_tag(value, size: "320x200", alt: "Image") %>
+    <% elsif component.component_type.name == "video" and name== "url" then %>
+      <iframe width="560" height="349" src="<%= video_url(value) %>"></iframe>
+    <% else %>
+      <%= value %>
+    <% end %>
+  </p>
+<% end %>
+
+<% if component.component_type.name == "number" %>
+  <% component.numbers.order("id asc").each do |number| %>
+    <%= render 'articles/show/number'+component.template.to_s+'_fields', number:number %>
+  <% end %>
+<% end %>
+
+<% if component.component_type.name == "news_link" %>
+  <% component.news_links.order("id asc").each do |news_link| %>
+    <%= render 'articles/show/news_link'+component.template.to_s+'_fields', number:number %>
+  <% end %>
+<% end %>
+
+
+</fieldset>

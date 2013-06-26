@@ -36,5 +36,14 @@
     <%= link_to_add_fields "New Number", f, :numbers, f.object.template %>
   <% end %>
 
+  <% if f.object.component_type.name == "news_link" %>
+    <% f.object.news_links.order("id asc").each do |news_link| %>
+      <%= f.fields_for :news_links, news_link do |builder| %>
+	<%= render 'articles/components/news_link'+f.object.template+'_fields', :f => builder %>
+      <% end %>
+    <% end %>
+    <%= link_to_add_fields "New News Link", f, :news_links, f.object.template %>
+  <% end %>
+
 
 </fieldset>

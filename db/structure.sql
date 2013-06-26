@@ -266,6 +266,39 @@ ALTER SEQUENCE employees_id_seq OWNED BY employees.id;
 
 
 --
+-- Name: news_links; Type: TABLE; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE TABLE news_links (
+    id integer NOT NULL,
+    publisher character varying(255),
+    url character varying(255),
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    article_component_id integer
+);
+
+
+--
+-- Name: news_links_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE news_links_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: news_links_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE news_links_id_seq OWNED BY news_links.id;
+
+
+--
 -- Name: numbers; Type: TABLE; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -360,6 +393,13 @@ ALTER TABLE ONLY employees ALTER COLUMN id SET DEFAULT nextval('employees_id_seq
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY news_links ALTER COLUMN id SET DEFAULT nextval('news_links_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY numbers ALTER COLUMN id SET DEFAULT nextval('numbers_id_seq'::regclass);
 
 
@@ -420,6 +460,14 @@ ALTER TABLE ONLY employees
 
 
 --
+-- Name: news_links_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
+--
+
+ALTER TABLE ONLY news_links
+    ADD CONSTRAINT news_links_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: numbers_pkey; Type: CONSTRAINT; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -472,3 +520,9 @@ INSERT INTO schema_migrations (version) VALUES ('20130620142819');
 INSERT INTO schema_migrations (version) VALUES ('20130622155158');
 
 INSERT INTO schema_migrations (version) VALUES ('20130625133841');
+
+INSERT INTO schema_migrations (version) VALUES ('20130626061152');
+
+INSERT INTO schema_migrations (version) VALUES ('20130626070506');
+
+INSERT INTO schema_migrations (version) VALUES ('20130626070540');

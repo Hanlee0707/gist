@@ -1,2 +1,17 @@
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<div class="left_half">
+  <p id="notice"><%= notice %></p>
+  <div id="basic_information">
+    <b> TITLE: </b> <%= @article.title %> <br /><br />
+    <b> CATEGORY: </b> <%= @article.category %>
+  </div>
+  <div id="contents">
+    <% @article.article_components.order("position asc").each do |component| %>
+        <%= render "articles/show/article_components", component: component %>
+    <% end %>
+  </div>
+
+  <%= link_to 'Edit', edit_article_path(@article) %> |
+  <%= link_to 'Back', articles_path %>
+</div>
+
+

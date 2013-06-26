@@ -37,4 +37,10 @@ module ApplicationHelper
     end
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
+
+  def video_url(original_url)
+    if original_url.include? "youtu.be" or original_url.include? "youtube" then
+      link = "http://www.youtube.com/embed/" + original_url.split('/').last 
+    end
+  end
 end
