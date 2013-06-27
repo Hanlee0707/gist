@@ -1,4 +1,7 @@
 Gist::Application.routes.draw do
+  resources :users
+
+
   resources :component_types
 
 
