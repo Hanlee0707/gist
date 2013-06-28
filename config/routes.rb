@@ -1,12 +1,13 @@
 Gist::Application.routes.draw do
+  resources :comments, only: [:create, :destroy]
   resources :users
-
-
+  resources :sessions, only: [:new, :create, :destroy]
   resources :component_types
-
-
   resources :articles
-  match "/add_content", to:"articles#add_content", :via => :get
+  
+  match "users/set_expert", to: "users#set_expert", :as => "set_expert", via: :post
+
+  root to: "sessions#new"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -28,7 +28,15 @@ class ArticlesController < ApplicationController
   # GET /articles/1.json
   def show
     @article = Article.find(params[:id])
-
+    @can_comment = false
+    if session[:user_id] then 
+      @comment = Comment.new(article_id: params[:id], user_id: session[:user_id])
+      @can_comment = true
+      @is_expert = false
+      if @comment.user.isExpert then
+        @is_expert = true
+      end
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @article }

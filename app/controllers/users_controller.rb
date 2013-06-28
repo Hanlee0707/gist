@@ -44,7 +44,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to root_url, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
@@ -80,4 +80,25 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def set_expert
+    @user = User.find(params[:id])
+    result = false
+    if @user.isExpert then
+      result = @user.update_attribute(:isExpert, false)
+    elsif @user.isExpert.nil? or !@user.isExpert then
+      result = @user.update_attribute(:isExpert, true)
+    end
+
+    respond_to do |format|
+      if result then 
+        format.html { redirect_to user_url(@user), notice:"Expert Status was successfully updated." }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to user_url(@user), notice:"Expert Status was not updated." }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 end

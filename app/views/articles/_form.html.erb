@@ -10,13 +10,9 @@
       <%= f.text_field :category, :size => 15, maxlength: 20, placeholder: "Enter category here" %>
     </div>
     <div id="content_cards">
-      <% currentPos = 1 %>
-      <% @article.article_components.each do |component| %>
-        <% if component.position == currentPos then %>
-          <%= f.fields_for :article_components, component do |builder| %>
-	    <%= render "articles/components/article_component_fields", f: builder %>
-          <% end %>
-	  <% currentPos = currentPos + 1 %>
+      <% @article.article_components.order("position asc").each do |component| %>
+        <%= f.fields_for :article_components, component do |builder| %>
+	  <%= render "articles/components/article_component_fields", f: builder %>
         <% end %>
       <% end %>
     </div>

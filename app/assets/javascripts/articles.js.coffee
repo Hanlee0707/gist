@@ -5,6 +5,7 @@
 jQuery ($) ->
   $(document).on "ready", ->
     $("#tabs").tabs()
+    $("#commentTabs").tabs()
     $("#content_cards").sortable update: (event, ui) -> 
       $("#content_cards").children().each ->
         prevCount = $(this).prevAll().length + 1

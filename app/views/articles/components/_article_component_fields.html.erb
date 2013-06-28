@@ -30,7 +30,7 @@
   <% if f.object.component_type.name == "number" %>
     <% f.object.numbers.order("id asc").each do |number| %>
       <%= f.fields_for :numbers, number do |builder| %>
-	<%= render 'articles/components/number'+f.object.template+'_fields', :f => builder %>
+	<%= render 'articles/components/number'+f.object.template.to_s+'_fields', :f => builder %>
       <% end %>
     <% end %>
     <%= link_to_add_fields "New Number", f, :numbers, f.object.template %>
